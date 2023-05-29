@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('templates/assets/images/favicon.png') }}">
-    <title>MAHASISWA</title>
+    <title>SMART RT</title>
     <!-- Custom CSS -->
     <link href="{{ url('templates/assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">
     <link href="{{ url('templates/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
@@ -50,7 +50,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-7 align-self-center">
-                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Hallo Admin!</h3>
+                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Hallo Admin</h3>
                     <div class="d-flex align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb m-0 p-0">
@@ -98,4 +98,11 @@
     <script src="{{ url('templates/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ url('templates/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ url('templates/dist/js/pages/dashboards/dashboard1.min.js') }}"></script>
+    <script src="{{ url('templates/assets/extra-libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ url('templates/assets/extra-libs/datatables.net-bs4/js/dataTables.bootstrap4.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+    $('#example').DataTable();
+});
+    </script>
 </body>

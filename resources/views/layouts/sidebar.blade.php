@@ -4,7 +4,7 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/mahasiswa"
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/"
                         aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
                             class="hide-menu">Dashboard</span></a></li>
                 <li class="list-divider"></li>
@@ -12,7 +12,7 @@
 
                 <li class="sidebar-item"> <a class="sidebar-link" href="#"
                         aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span
-                            class="hide-menu">Data Mahasiswa
+                            class="hide-menu">Data Penduduk
                         </span></a>
                 </li>
 

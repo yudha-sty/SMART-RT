@@ -12,7 +12,7 @@
                     <!-- Logo text -->
                     <span class="logo-text">
                         <!-- dark Logo text -->
-                        <h2>Mahasiswa</h2>
+                        <h2>SMART - RT</h2>
                     </span>
             </div>
             <!-- ============================================================== -->

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Models\Inhabitant;
 
 class InhabitantController extends Controller
 {
@@ -11,9 +13,10 @@ class InhabitantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('inhabitant/index');
+        $inhabitant = Inhabitant::all();
+        return view('inhabitant/index', compact('inhabitant'));
     }
 
     /**
@@ -23,7 +26,7 @@ class InhabitantController extends Controller
      */
     public function create()
     {
-        //
+        return view('inhabitant/create');
     }
 
     /**
@@ -34,7 +37,33 @@ class InhabitantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'no_kk',
+            'nik',
+            'nama_lengkap',
+            'jenis_kelamin',
+            'tempat_lahir',
+            'ttl',
+            'golongan_darah',
+            'alamat',
+            'status_perkawinan',
+            'pendidikan_terakhir',
+            'status_pekerjaan'
+        ]);
+        Inhabitant::create([
+            'no_kk' => request('no_kk'),
+            'nik' => request('nik'),
+            'nama_lengkap' => request('nama_lengkap'),
+            'jenis_kelamin' => request('jenis_kelamin'),
+            'tempat_lahir' => request('tempat_lahir'),
+            'ttl' => request('ttl'),
+            'golongan_darah' => request('golongan_darah'),
+            'alamat' => request('alamat'),
+            'status_perkawinan' => request('status_perkawinan'),
+            'pendidikan_terakhir' => request('pendidikan_terakhir'),
+            'status_pekerjaan' => request('status_pekerjaan')
+        ]);
+        return redirect('/')->with('success', 'Data Berhasil Di Tambah!');
     }
 
     /**
@@ -56,7 +85,8 @@ class InhabitantController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inhabitant = DB::table('inhabitants')->where('id', $id)->get();
+        return view('inhabitant/update', ['inhabitant' => $inhabitant]);
     }
 
     /**
@@ -66,9 +96,22 @@ class InhabitantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        DB::table('inhabitants')->where('id', $request->id)->update([
+            'no_kk' => request('no_kk'),
+            'nik' => request('nik'),
+            'nama_lengkap' => request('nama_lengkap'),
+            'jenis_kelamin' => request('jenis_kelamin'),
+            'tempat_lahir' => request('tempat_lahir'),
+            'ttl' => request('ttl'),
+            'golongan_darah' => request('golongan_darah'),
+            'alamat' => request('alamat'),
+            'status_perkawinan' => request('status_perkawinan'),
+            'pendidikan_terakhir' => request('pendidikan_terakhir'),
+            'status_pekerjaan' => request('status_pekerjaan')
+        ]);
+        return redirect()->route('inhabitant');
     }
 
     /**
@@ -77,8 +120,10 @@ class InhabitantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
-        //
+        DB::table('inhabitants')->where('id', $id)->delete();
+        return redirect()->route('inhabitant');
     }
 }
